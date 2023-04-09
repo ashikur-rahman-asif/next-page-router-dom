@@ -7,10 +7,12 @@ import Home from './assets/components/Home'
 import About from './assets/components/About'
 import Books from './assets/components/Books'
 import BookDetails from './assets/components/BookDetails'
+import ErrorPage from './assets/components/ErrorPage'
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
