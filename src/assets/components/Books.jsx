@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Book from "./Book";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Books = () => {
+  const navigation = useNavigation()
+    // console.log(navigation.state)
+    if (navigation.state === 'loading') {
+        return <LoadingSpinner></LoadingSpinner>
+    }
   // const [books, setBooks] = useState([])
   // useEffect(() => {
   //     fetch('https://api.itbook.store/1.0/new')
@@ -11,6 +17,7 @@ const Books = () => {
   // },[])
   const { books } = useLoaderData();
   console.log(books);
+  
   return (
     <div className="my-container">
       <div className="grid gap-6 mb-8 lg:grid-cols-4 sm:grid-cols-2">
